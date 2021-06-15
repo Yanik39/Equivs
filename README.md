@@ -1,1 +1,1 @@
-# Equivs
+# Equivs: Fake *.deb creator to avoid dpkg and apt dependency issues.
