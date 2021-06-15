@@ -1,4 +1,4 @@
-FROM FROM debian:buster-slim
+FROM debian:buster-slim
 
 ENV DEBIAN_FRONTEND="noninteractive" \
 	TERM="xterm-256color" \
