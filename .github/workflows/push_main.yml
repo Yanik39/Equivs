@@ -22,13 +22,22 @@ jobs:
         uses: docker/login-action@v1 
         with:
           username: ${{ secrets.DOCKER_USER }}
-          password: ${{ secrets.DOCKER_PASS }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+      -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v1 
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Push_Docker DEV
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: yanik39/equivs:latest
+          tags: |
+            yanik39/equivs:latest
+            ghcr.io/yanik39/equivs:latest
       -
         name: Git Checkout
         uses: actions/checkout@v2
