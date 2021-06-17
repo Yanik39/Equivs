@@ -19,3 +19,5 @@ RUN apt-get update && apt-get -y upgrade \
 	&& rm -rf /var/lib/apt/* /var/lib/cache/* /var/lib/log/* \
 		/var/tmp/* /usr/share/doc/ /usr/share/man/ /usr/share/locale/ \
 		/root/.cache /root/.local /root/.gnupg /root/.config /tmp/*
+		
+ENTRYPOINT ["tail", "-f", "/dev/null"]
