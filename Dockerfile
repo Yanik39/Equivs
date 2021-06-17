@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
 		
 COPY root/ /
 
-RUN apt-get update && apt-get -y upgrade \
+RUN apt-get update && apt-get upgrade -y --with-new-pkgs \
 	&& apt-get install -y --no-install-recommends \
 	nano wget curl gnupg2 bash xz-utils zip unzip \
 	openssl net-tools htop equivs \
