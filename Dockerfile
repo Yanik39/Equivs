@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND="noninteractive" \
 
 RUN apt-get update && apt-get install -y \
 	--no-install-recommends apt-utils \
-	ca-certificates apt-transport-https \
+	ca-certificates apt-transport-https libcrypt1 \
 	&& ln -s /lib/x86_64-linux-gnu/libcrypto.so.1.0.0 /lib/x86_64-linux-gnu/libcrypto.so.1
 		
 COPY root/ /
