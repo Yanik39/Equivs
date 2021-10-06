@@ -13,7 +13,7 @@ COPY root/ /
 RUN apt-get update && apt-get upgrade -y --with-new-pkgs \
 	&& apt-get install -y --no-install-recommends \
 	nano wget curl gnupg2 bash xz-utils zip unzip \
-	openssl net-tools htop equivs \
+	openssl libssl1.0.0 net-tools htop equivs \
 	&& apt-get clean autoclean -y \
 	&& apt-get autoremove -y \
 	&& rm -rf /var/lib/apt/* /var/lib/cache/* /var/lib/log/* \
