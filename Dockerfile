@@ -10,10 +10,11 @@ RUN apt-get update && apt-get install -y \
 		
 COPY root/ /
 
-RUN apt-get update && apt-get upgrade -y --with-new-pkgs \
+RUN dpkg --add-architecture i386 \
+	&& apt-get update && apt-get upgrade -y --with-new-pkgs \
 	&& apt-get install -y --no-install-recommends \
 	nano wget curl gnupg2 bash xz-utils zip unzip \
-	openssl libcrypt1 net-tools htop equivs \
+	openssl libcrypt1:i386 net-tools htop equivs \
 	&& apt-get clean autoclean -y \
 	&& apt-get autoremove -y \
 	&& rm -rf /var/lib/apt/* /var/lib/cache/* /var/lib/log/* \
