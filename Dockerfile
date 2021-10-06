@@ -4,10 +4,10 @@ ENV DEBIAN_FRONTEND="noninteractive" \
 	TERM="xterm-256color" \
 	LC_ALL="C.UTF-8"
 
-RUN dpkg --add-architecture i386 \
-	&& apt-get update && apt-get install -y \
-	--no-install-recommends libcrypt1 apt-utils \
-	ca-certificates apt-transport-https
+RUN apt-get update && apt-get install -y \
+	--no-install-recommends apt-utils \
+	ca-certificates apt-transport-https \
+	&& ln -s /lib/x86_64-linux-gnu/libcrypto.so.1.0.0 /lib/x86_64-linux-gnu/libcrypto.so.1
 		
 COPY root/ /
 
