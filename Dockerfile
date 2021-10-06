@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND="noninteractive" \
 
 RUN dpkg --add-architecture i386 \
 	&& apt-get update && apt-get install -y \
-	--no-install-recommends libcrypt1:i386 apt-utils \
+	--no-install-recommends libc6-dev apt-utils \
 	ca-certificates apt-transport-https
 		
 COPY root/ /
